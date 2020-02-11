@@ -66,7 +66,9 @@ def convert_to_float(image):
   Returns:
     Float-valued numpy array with values in [0, 1]
   """
-  pass
+  for x in np.nditer(image, op_flags=[['readwrite']]):
+      x = x / 255.0
+  return image.astype('float64')
 
 
 def convolution(image, kernel):
